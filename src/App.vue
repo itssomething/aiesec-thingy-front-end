@@ -29,4 +29,24 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+.el-row {
+  margin-bottom: 20px;
+}
+
+.el-row:last-child {
+    margin-bottom: 0;
+}
+
+.el-col {
+  border-radius: 4px;
+}
+
+.el-card {
+  cursor: pointer;
+}
+
+.el-card p {
+  text-align: left;
+}
 </style>
