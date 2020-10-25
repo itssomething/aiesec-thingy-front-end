@@ -22,28 +22,34 @@ export default {
       opps: [],
       loading: true,
       scrolledToBottom: false,
+      currentPage: 1,
     }
   },
   methods: {
     scroll() {
       window.onscroll = () => {
-        let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight
+        let bottomOfWindow = Math.ceil(document.documentElement.scrollTop + window.innerHeight) === document.documentElement.offsetHeight;
 
         if (bottomOfWindow) {
-          this.scrolledToBottom = true
+          this.fetchOpps();
+          this.$data.currentPage++;
         }
-      }
+      };
     },
-    fetchOpps() {
-      this.$apollo.query({ query: GET_OPPS_QUERY })
+    async fetchOpps() {
+      this.$apollo.query({
+        query: GET_OPPS_QUERY,
+        variables: {
+          page: this.$data.currentPage
+        }
+      })
         .then((response) => {
-          console.log(response.data.allOpportunity.data)
-          this.$data.opps = response.data.allOpportunity.data
+          this.$data.opps = this.$data.opps.concat(response.data.allOpportunity.data)
           this.loading = false
         });
     }
   },
-  async mounted() {
+  mounted() {
     this.fetchOpps();
     this.scroll();
   },
