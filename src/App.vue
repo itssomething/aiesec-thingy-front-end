@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/opps">Opps</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/histories">History</router-link>
     </div>
     <router-view />
   </div>
@@ -49,4 +49,22 @@
 .el-card p {
   text-align: left;
 }
+
+.img-container {
+  height: 200px;      /* equals max image height */
+  white-space: nowrap;
+  text-align: center; margin: 1em 0;
+}
+
+.helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.image {
+  background: #3A6F9A;
+  vertical-align: middle;
+}
+
 </style>
