@@ -13,7 +13,7 @@ Vue.use(ElementUI, { locale });
 Vue.use(VueApollo)
 
 const apolloClient = new ApolloClient({
-  uri: 'https://gis-api.aiesec.org/graphql?access_token=e316ebe109dd84ed16734e5161a2d236d0a7e6daf499941f7c110078e3c75493'
+  uri: `https://gis-api.aiesec.org/graphql?access_token=${process.env.VUE_APP_GIS_API_ACCESS_TOKEN}`
 })
 
 const apolloProvider = new VueApollo({

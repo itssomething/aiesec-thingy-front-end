@@ -4,7 +4,7 @@
     <el-button type="success" @click="sortByMostEdited" :loading="sorting">Sort by most edited</el-button>
 
     <el-table :data="histories" stripe style="width: 100%">
-      <el-table-column sortable="custom" prop="opp_id" label="Opportunity ID" width="400" >
+      <el-table-column prop="opp_id" label="Opportunity ID" width="400" >
       </el-table-column>
       <el-table-column prop="update_count" label="Number of updates" width="400">
       </el-table-column>
